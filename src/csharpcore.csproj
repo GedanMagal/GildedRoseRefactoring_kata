@@ -4,6 +4,8 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <StartupObject>csharpcore.Program</StartupObject>
+    <AssemblyName>csharpcore</AssemblyName>
+    <RootNamespace>GildedRoseRefactoring</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
