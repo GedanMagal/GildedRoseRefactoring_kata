@@ -1,14 +1,12 @@
 ﻿using csharpcore;
 using GildedRoseRefactoring.Interface;
 using GildedRoseRefactoring.Shared.Constants;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GildedRoseRefactoring.Models
 {
     public class ItemWrapper : Item, IItemWrapper
     {
+
         protected ItemWrapper()
         { }
 
@@ -18,6 +16,7 @@ namespace GildedRoseRefactoring.Models
             SellIn = sellIn;
             Quality = quality;
         }
+
 
         public virtual void Update()
         {
@@ -30,18 +29,6 @@ namespace GildedRoseRefactoring.Models
             SellIn--;
         }
 
-        protected virtual int CalculateDecreaseQuality()
-        {
-            //Quando a data de venda do item tiver passado, a qualidade(quality) do item diminui duas vezes mais rapido.
-            //A qualidade(quality) do item não pode ser negativa
-            if (VerifySellInIsLassThenZero() && Quality - RangeConditions.DOUBLE_DECREASE_QUALITY >= RangeConditions.QUALITY_VALUE_MIN)
-            {
-                return RangeConditions.DOUBLE_DECREASE_QUALITY;
-            }
-
-            return Quality - 1 >= RangeConditions.QUALITY_VALUE_MIN ? RangeConditions.DEFAULT_DECREASE_QUALITY : 0;
-        }
-
         protected virtual void IncreaseQuality()
         {
             Quality++;
@@ -52,20 +39,40 @@ namespace GildedRoseRefactoring.Models
             Quality -= valueToDecrease;
         }
 
-        protected bool VerifyQualityValueIsExpired()
+        protected virtual int CalculateDecreaseQuality()
         {
+            var qualityDecreaseDoubleValueMin = Quality - RangeConditions.DoubleDecreaseQuality;
+            var isUnderQualityValueMin = qualityDecreaseDoubleValueMin >= RangeConditions.QualityValueMin;
+            if (VerifySellInIsLassThenMin() && isUnderQualityValueMin)
+            {
+                return RangeConditions.DoubleDecreaseQuality;
+            }
 
-            return Quality < RangeConditions.QUALITY_VALUE_MIN;
+            return (Quality - 1) >= RangeConditions.QualityValueMin ? RangeConditions.DefaultDecreaseQuality : 0;
         }
 
-        protected bool VerifySellInIsLassThenZero()
+        protected bool VerifyQualityValueIsZero()
         {
-            return SellIn < RangeConditions.SELLIN_MIN_VALUE;
+
+            return Quality == RangeConditions.QualityValueMin;
+        }
+
+        protected bool VerifyQualityValueIsLassThenMax()
+        {
+
+            return Quality < RangeConditions.QualityValueMin;
+        }
+
+        protected bool VerifySellInIsLassThenMin()
+        {
+            return SellIn < RangeConditions.SellInMinValue;
         }
 
         protected virtual void ResetQuality()
         {
             Quality = 0;
         }
+
+
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using ApprovalTests.Reporters;
 using csharpcore;
+using GildedRefactoring.Tests.Helper;
+using GildedRoseRefactoring.Shared.Constants;
 
 namespace GildedRefactoring.Tests
 {
@@ -13,33 +15,21 @@ namespace GildedRefactoring.Tests
         [Fact]
         public void CreationItem()
         {
-            var item = CreateItem("foo", 0, 0);
+            var item = SharedFunctions.CreateItem("foo", 0, 0);
             ApprovalTest.Equals(item, item);
         }
 
-
         [Theory]
-        [InlineData("Foo", 0, 10)]
-        [InlineData("Sulfuras, Hand of Ragnaros", 0, 12)]
-        [InlineData("Aged Brie", 0, 14)]
-        public void When_SellIn_Is_Expired_Quality_Decrease_Twice_Fast(string name, int sellIn, int quality)
+        [InlineData("Test", 0, 20)]
+        public void When_SellIn_Is_Expired_Quality_Decrease_Twice_Fast_To_NormalItem(string name, int sellIn, int quality)
         {
-            var item = UpdateQuality(name, sellIn, quality);
-            var expected = new Item {Name = item.Name, SellIn = item.SellIn , Quality = (item.Quality - 2)};
-            ApprovalTest.Equals(expected, item);
+            var item = SharedFunctions.UpdateQuality(name, sellIn, quality);
+            var expected = new Item { Name = item.Name, SellIn = item.SellIn, Quality = quality - RangeConditions.DoubleDecreaseQuality };
+            Assert.Equal(expected.Name, item.Name);
+            Assert.Equal(expected.Quality, item.Quality);
+            Assert.Equal(expected.SellIn, item.SellIn);
         }
 
-        private static Item UpdateQuality(string name, int sellIn, int quality)
-        {
-            IList<Item> Items = new List<Item> { new Item { Name = name, SellIn = sellIn, Quality = quality } };
-            GildedRose app = new GildedRose(Items);
-            app.UpdateQuality();
-            return Items.First();
-        }
 
-        private static Item CreateItem(string name, int sellIn, int quality)
-        {
-            return new Item { Name = name, SellIn = sellIn, Quality = quality };
-        }
     }
 }

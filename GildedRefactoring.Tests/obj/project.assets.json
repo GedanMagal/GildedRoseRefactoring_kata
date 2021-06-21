@@ -9970,11 +9970,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Gedan\\Documents\\Challenge\\GildedRoseRefactoring_kata\\GildedRefactoring.Tests\\GildedRefactoring.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\Gedan\\Desktop\\DESAFIO\\GildedRoseRefactoring_kata\\GildedRefactoring.Tests\\GildedRefactoring.Tests.csproj",
       "projectName": "GildedRefactoring.Tests",
-      "projectPath": "C:\\Users\\Gedan\\Documents\\Challenge\\GildedRoseRefactoring_kata\\GildedRefactoring.Tests\\GildedRefactoring.Tests.csproj",
+      "projectPath": "C:\\Users\\Gedan\\Desktop\\DESAFIO\\GildedRoseRefactoring_kata\\GildedRefactoring.Tests\\GildedRefactoring.Tests.csproj",
       "packagesPath": "C:\\Users\\Gedan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Gedan\\Documents\\Challenge\\GildedRoseRefactoring_kata\\GildedRefactoring.Tests\\obj\\",
+      "outputPath": "C:\\Users\\Gedan\\Desktop\\DESAFIO\\GildedRoseRefactoring_kata\\GildedRefactoring.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -9994,8 +9994,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Gedan\\Documents\\Challenge\\GildedRoseRefactoring_kata\\src\\csharpcore.csproj": {
-              "projectPath": "C:\\Users\\Gedan\\Documents\\Challenge\\GildedRoseRefactoring_kata\\src\\csharpcore.csproj"
+            "C:\\Users\\Gedan\\Desktop\\DESAFIO\\GildedRoseRefactoring_kata\\src\\csharpcore.csproj": {
+              "projectPath": "C:\\Users\\Gedan\\Desktop\\DESAFIO\\GildedRoseRefactoring_kata\\src\\csharpcore.csproj"
             }
           }
         }
@@ -10050,7 +10050,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

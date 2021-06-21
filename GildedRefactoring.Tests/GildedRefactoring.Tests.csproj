@@ -24,4 +24,8 @@
     <ProjectReference Include="..\src\csharpcore.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ConjuredItemTests\" />
+  </ItemGroup>
+
 </Project>

@@ -16,30 +16,23 @@ namespace GildedRoseRefactoring.Models.Normal
 
         public override void Update()
         {
-            DecreaseQuality();
+            DecreaseSellIn();
             IncreaseQuality();
-
-            if (VerifySellInIsLassThenZero())
-            {
-                ResetQuality();
-            }
-
         }
 
         protected override void IncreaseQuality()
         {
-            Quality = (SellIn < RangeConditions.SELLIN_MIN_VALUE) ? RangeConditions.DEFAULT_INCREASE_QUALITY : Quality + CalculateValueToIncreaseQuality();
+            int valueIncrement = CalculateValueToIncreaseQuality();
+
+            Quality += valueIncrement;
         }
 
         private int CalculateValueToIncreaseQuality()
         {
+            var condition = (Quality + 2) <= RangeConditions.QualityValueMax;
 
-            if (SellIn <= RangeConditions.DEADLINE_TO_INCREASE_TWO && (Quality + 2) > RangeConditions.QUALITY_MAX_VALUE) return 2;
-            //if (SellIn <= RangeConditions.DEADLINE_TO_INCREASE_THREE && VerifyQualityValueIsExpired() && VerifyQualityValueIsExpired()) return 3;
-            if (SellIn <= RangeConditions.DEADLINE_TO_INCREASE_THREE && (Quality + 3) > RangeConditions.QUALITY_MAX_VALUE) return 3;
-
-            return RangeConditions.DEFAULT_INCREASE_QUALITY;
+            if (VerifySellInIsLassThenMin() && condition) return 2;
+            return Quality + 1 <= RangeConditions.QualityValueMax ? RangeConditions.DefaultIncreaseQuality : 0;
         }
-
     }
 }

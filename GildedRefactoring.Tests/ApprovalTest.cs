@@ -4,8 +4,9 @@ using System.IO;
 using System.Text;
 using ApprovalTests;
 using ApprovalTests.Reporters;
+using csharpcore;
 
-namespace csharpcore
+namespace GildedRefactoring.Tests
 {
     [UseReporter(typeof(DiffReporter))]
     public class ApprovalTest

@@ -1,28 +1,27 @@
 ﻿using GildedRoseRefactoring.Factory;
 using GildedRoseRefactoring.Interface;
+using GildedRoseRefactoring.Models;
 using GildedRoseRefactoring.Shared.Constants;
-using System;
 using System.Collections.Generic;
-using System.Reflection.Metadata;
 
 namespace csharpcore
 {
     public class GildedRose
     {
         IList<Item> Items;
+
+
         public GildedRose(IList<Item> Items)
         {
             this.Items = Items;
         }
-        public IList<Item> UpdateQuality()
+
+        public void UpdateQuality()
         {
             foreach (Item item in Items)
             {
-                var concreteItem = ItemWrapperFactory.CreateItemFactory(item.Name);
-                concreteItem.Update();
-                //UpdateQualityItem(item);
+                ItemWrapperFactory.UpdateQuality(item);
             }
-            return Items;
         }
     }
 }
