@@ -1,4 +1,4 @@
-# Gilded Rose Refactorinh Kata
+# Gilded Rose Refactoring Kata
 
 Aplicação a fim de melhoria na escrita de código e aplicação de testes.
 ## Installation
