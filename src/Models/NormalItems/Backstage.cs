@@ -23,20 +23,21 @@ namespace GildedRoseRefactoring.Models.Normal
 
         protected override void IncreaseQuality()
         {
+            // early return
             if ((SellIn >= 6) && (SellIn <= 10) && (Quality + 2) <= RangeConditions.QualityValueMax)
             {
                 Quality += 2;
+                return;
             }
             else if ((SellIn <= 5) && ((Quality + 3) <= RangeConditions.QualityValueMax))
             {
                 Quality += 3;
+                return;
             }
-            else
+
+            if ((Quality + 1) <= RangeConditions.QualityValueMax)
             {
-                if ((Quality + 1) <= RangeConditions.QualityValueMax)
-                {
-                    Quality++;
-                }
+                Quality++;
             }
         }
     }
