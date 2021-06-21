@@ -32,4 +32,4 @@ dotnet run
 [Gilded Rose refactoring Kata - By emilybache/](https://github.com/emilybache/GildedRose-Refactoring-Kata)
 ## Especificações em português
 
-[Especificações](Kata/blob/main/GildedRoseRequirements_pt-BR.md)
+[Especificações](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/GildedRoseRequirements_pt-BR.md)
