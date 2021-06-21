@@ -23,7 +23,7 @@ dotnet test
 
 
 Executar:
-Para realizar a execução, será necessario entrar dentro da pasta src e executar o comando:
+A execução deverá ser realizada dentro do diretorio [SRC](https://github.com/GedanMagal/GildedRoseRefactoring_kata/tree/master/src)
 ```
 dotnet run
 ```
