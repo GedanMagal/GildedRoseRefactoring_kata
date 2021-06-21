@@ -23,6 +23,7 @@ dotnet test
 
 
 Executar:
+Para realizar a execução, será necessario entrar dentro da pasta src e executar o comando:
 ```
 dotnet run
 ```
