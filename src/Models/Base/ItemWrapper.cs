@@ -42,8 +42,8 @@ namespace GildedRoseRefactoring.Models
         protected virtual int CalculateDecreaseQuality()
         {
             var qualityDecreaseDoubleValueMin = Quality - RangeConditions.DoubleDecreaseQuality;
-            var isUnderQualityValueMin = qualityDecreaseDoubleValueMin >= RangeConditions.QualityValueMin;
-            if (VerifySellInIsLassThenMin() && isUnderQualityValueMin)
+            var isGreaterThanQualityValueMin = qualityDecreaseDoubleValueMin >= RangeConditions.QualityValueMin;
+            if (VerifySellInIsLassThenMin() && isGreaterThanQualityValueMin)
             {
                 return RangeConditions.DoubleDecreaseQuality;
             }

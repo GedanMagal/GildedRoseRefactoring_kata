@@ -28,10 +28,11 @@ namespace GildedRoseRefactoring.Models.Normal
         protected override int CalculateDecreaseQuality()
         {
             var qualityDecreaseDoubleValueMin = Quality - RangeConditions.DoubleDecreaseQuality;
-            var isUnderQualityValueMin = qualityDecreaseDoubleValueMin >= RangeConditions.QualityValueMin;
-            if (VerifySellInIsLassThenMin() && isUnderQualityValueMin)
+
+            var isGreaterThanQualityValueMin = qualityDecreaseDoubleValueMin >= RangeConditions.QualityValueMin;
+            if (VerifySellInIsLassThenMin() && isGreaterThanQualityValueMin)
             {
-                return RangeConditions.DoubleDecreaseQuality;
+                return RangeConditions.DoubleDecreaseQuality * 2;
             }
 
             return (Quality - 1) >= RangeConditions.QualityValueMin ? RangeConditions.DefaultDecreaseQuality : 0;
